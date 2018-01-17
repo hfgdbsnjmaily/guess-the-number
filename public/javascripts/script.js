@@ -5,11 +5,15 @@ form.submit(function(e) {
     e.preventDefault();
 
     $.ajax({
-        type: form.attr('method'),
-        url: form.attr('action'),
+        type: "post",
+        url: "http://localhost:3000/findNumber",
         data: form.serialize(),
         success: function(data) {
             addHistoryItem(data.number, data.result)
+        },
+        error: function(data) {
+            console.log('An error occurred.');
+            console.log(data);
         }
     });
 });
