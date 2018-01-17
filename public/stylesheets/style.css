@@ -1,0 +1,107 @@
+html,
+body {
+    background-color: rgb(231, 231, 231);
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.app,
+.history {
+    width: 49%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+}
+
+.app {
+    left: 0;
+}
+
+.history {
+    right: 0;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 50%;
+    height: 30px;
+    transition: all .5s ease-in-out;
+}
+
+input[type=number]:focus:valid {
+    border: 1px solid rgba(0, 128, 0, 0.5);
+    outline: none;
+}
+
+input[type=number]:focus:invalid {
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    outline: none;
+}
+
+input[type=number]:valid {
+    border: 1px solid rgba(0, 128, 0, 0.5);
+    outline: none;
+}
+
+input[type=number]:invalid {
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    width: 50%;
+    height: 30px;
+    background-color: #555;
+    border: none;
+    color: white;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:hover {
+    background-color: rgb(54, 54, 54);
+}
+
+button:focus {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.history__log p {
+    display: inline-block;
+    margin: 5px auto;
+}
+
+li:nth-child(odd) {
+    background: rgb(185, 185, 185);
+}
+
+.perfect {
+    background-color: rgba(0, 128, 0, 0.5) !important;
+}
