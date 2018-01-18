@@ -12,11 +12,11 @@ function randomNumber() {
 
 function checkNumber(numberToCheck) {
     if (numberToCheck < this.randomNumber) {
-        resultOfCheck = 'too low... Try again';
+        resultOfCheck = 'too low';
     } else if (numberToCheck == this.randomNumber) {
         resultOfCheck = 'Perfect';
     } else if (numberToCheck > this.randomNumber) {
-        resultOfCheck = 'too high... Try again';
+        resultOfCheck = 'too high';
     }
 }
 
@@ -29,7 +29,6 @@ router.post('/', function(req, res, next) {
 
     var numberToCheck = req.body.numberToCheck;
     checkNumber(numberToCheck);
-
     res.json({
         number: numberToCheck,
         result: resultOfCheck

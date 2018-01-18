@@ -1,22 +1,42 @@
-var form = $('#form');
+var lowestNumber = 1;
+var highestNumber = 10000;
+var numberToCheck = Math.floor((Math.random() * highestNumber) + 1);
 
-form.submit(function(e) {
+function guessTheNumber(previousNumber, resultOfCheck) {
 
-    e.preventDefault();
+    if (resultOfCheck === 'too low') {
 
+        this.lowestNumber = previousNumber + 1;
+        this.numberToCheck = Math.floor(Math.random() * (this.highestNumber - this.lowestNumber + 1) + this.lowestNumber);
+
+        sendPost();
+
+    } else if (resultOfCheck === 'too high') {
+        this.highestNumber = previousNumber - 1;
+        this.numberToCheck = Math.floor(Math.random() * ((this.highestNumber - 1) - this.lowestNumber + 1) + this.lowestNumber);
+
+        sendPost();
+    }
+}
+
+function sendPost() {
     $.ajax({
-        type: "post",
+        type: "POST",
         url: "http://localhost:3000/findNumber",
-        data: form.serialize(),
+        data: { numberToCheck: numberToCheck },
         success: function(data) {
-            addHistoryItem(data.number, data.result)
+
+            addHistoryItem(data.number, data.result);
+
+            guessTheNumber(parseInt(data.number), data.result);
+
         },
         error: function(data) {
             console.log('An error occurred.');
             console.log(data);
         }
     });
-});
+}
 
 function addHistoryItem(numberToCheck, resultOfCheck) {
 
@@ -27,5 +47,6 @@ function addHistoryItem(numberToCheck, resultOfCheck) {
         document.getElementById('history__list').innerHTML +=
             '<li><div class="history__log"><p>' + numberToCheck + ' - ' + resultOfCheck + '!</p></div></li>';
     }
-
 }
+
+sendPost();

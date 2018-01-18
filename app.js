@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', findNumber);
 app.use('/findNumber/', findNumber);
 
 app.use(function(req, res, next) {

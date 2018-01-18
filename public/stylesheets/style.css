@@ -19,21 +19,11 @@ section {
     text-align: center;
 }
 
-.app,
 .history {
-    width: 49%;
+    width: 100%;
     height: 100%;
-    display: inline-block;
     position: absolute;
     top: 100px;
-}
-
-.app {
-    left: 0;
-}
-
-.history {
-    right: 0;
 }
 
 input {
